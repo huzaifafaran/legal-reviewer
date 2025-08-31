@@ -1,9 +1,6 @@
-streamlit>=1.28.0
-agno>=0.1.0
-duckduckgo-search>=4.1.0
-chromadb>=0.4.18
-openai>=1.0.0
-pypdf>=3.15.0
-# Alternative vector database options if ChromaDB fails
-# faiss-cpu>=1.7.4
-# sentence-transformers>=2.2.2
+streamlit
+agno
+chromadb
+openai
+pypdf
+ddgs==9.5.4
