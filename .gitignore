@@ -177,7 +177,6 @@ temp/
 # ChromaDB
 chromadb/
 tmp/chromadb/
-.chroma/
 
 # PDF files (if you don't want to track sample documents)
 *.pdf
