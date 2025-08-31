@@ -4,4 +4,4 @@ chromadb
 openai
 pypdf
 ddgs==9.5.4
-pysqlite3-binary==0.5.3
+pysqlite3-binary==0.5.3.post1
