@@ -1,4 +1,15 @@
 # AI-Powered Legal Document Analysis System
+
+# --- sqlite shim for Chroma on Streamlit ---
+import sys
+try:
+    import pysqlite3  # provides sqlite3 >= 3.35
+    sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+except Exception:
+    # If not available, leave default sqlite3 (will crash again if too old)
+    pass
+# -------------------------------------------
+
 import os
 import streamlit as st
 import tempfile
@@ -33,11 +44,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Initialize application state
+# Ensure ChromaDB directory is writable (especially for Streamlit Cloud)
+CHROMA_DIR = os.path.join(os.getcwd(), ".chroma")
+os.makedirs(CHROMA_DIR, exist_ok=True)
+
 if "vector_database" not in st.session_state:
     st.session_state.vector_database = ChromaDb(
         collection="legal_docs", 
-        path="tmp/chromadb", 
-        persistent_client=True, 
+        persist_directory=CHROMA_DIR,
         embedder=OpenAIEmbedder()
     )
 
