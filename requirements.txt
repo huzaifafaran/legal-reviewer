@@ -1,7 +1,6 @@
 streamlit
 agno
-duckduckgo-search==5.3.0
 chromadb
 openai
 pypdf
-
+ddgs==9.5.4
